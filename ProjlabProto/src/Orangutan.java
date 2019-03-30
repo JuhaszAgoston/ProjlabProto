@@ -63,7 +63,7 @@ public class Orangutan extends MozgoElem {
 
 	@Override
 	public void CollideWithOrangutan(Orangutan o) {
-		if (this.GetSafehouse() > 0) {
+		if (this.GetSafehouse() == 0) {
 			for (Panda p : this.sor)
 				p.SetLeader(o);
 			
@@ -74,7 +74,7 @@ public class Orangutan extends MozgoElem {
 			this.position.SetElem(this);
 			o.position.SetElem(o);
 			
-			this.SetSafehouse(3);
+			o.SetSafehouse(3);
 		}
 	}
 
