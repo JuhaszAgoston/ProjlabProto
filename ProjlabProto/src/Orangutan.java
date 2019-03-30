@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.ListIterator;
 
 //AKOS
 //AKOS
 public class Orangutan extends MozgoElem {
-	
+
 	public ArrayList<Panda> sor = new ArrayList<Panda>();
+	private int safehouse = 0;
 
 	public void AddPandaToSor(Panda p) {
 		p.SetFree(false);
@@ -16,7 +16,7 @@ public class Orangutan extends MozgoElem {
 		this.SetPosition(temp);
 		// this.GetPosition().SetElem(this);
 		p.SetLeader(this);
-		sor.add(0,p);
+		sor.add(0, p);
 	}
 
 	// public void PandatLeptet (Csempe cs) {}
@@ -33,10 +33,11 @@ public class Orangutan extends MozgoElem {
 			temp.SetFree(true);
 			iter.remove();
 		}
-		
+
 	}
+
 	public void RemovePandaFromSor(Panda p) {
-		//this.FreePandaSor(sor.indexOf(p));
+		// this.FreePandaSor(sor.indexOf(p));
 		this.sor.remove(p);
 	}
 
@@ -44,7 +45,14 @@ public class Orangutan extends MozgoElem {
 		cs1.SetElem(this);
 		this.SetPosition(cs1);
 		this.position.RemoveElem();
+		if (safehouse > 0)
+			safehouse--;
 
+	}
+
+	public void LeaveSor() {
+		for (Panda p : this.sor)
+			RemovePandaFromSor(p);
 	}
 
 	@Override
@@ -55,7 +63,19 @@ public class Orangutan extends MozgoElem {
 
 	@Override
 	public void CollideWithOrangutan(Orangutan o) {
-
+		if (this.GetSafehouse() > 0) {
+			for (Panda p : this.sor)
+				p.SetLeader(o);
+			
+			o.LeaveSor();
+			Csempe temp = o.GetPosition();
+			o.SetPosition(this.position);
+			this.SetPosition(temp);
+			this.position.SetElem(this);
+			o.position.SetElem(o);
+			
+			this.SetSafehouse(3);
+		}
 	}
 
 	@Override
@@ -70,6 +90,14 @@ public class Orangutan extends MozgoElem {
 
 	@Override
 	public void AffectedByFotel(Fotel f) {
+	}
+
+	public int GetSafehouse() {
+		return safehouse;
+	}
+
+	public void SetSafehouse(int safehouse) {
+		this.safehouse = safehouse;
 	}
 
 }

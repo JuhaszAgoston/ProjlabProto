@@ -38,10 +38,10 @@ public abstract class Panda extends MozgoElem {
 
 	@Override
 	public void Die() {
-		this.position.SetElem(null);
+		/*this.position.SetElem(null);
 		this.SetPosition(null);
 		this.leader.RemovePandaFromSor(this);
-		this.leader = null; // ?
+		this.leader = null; // ?*/
 	}
 
 	@Override
