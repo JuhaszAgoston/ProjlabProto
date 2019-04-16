@@ -1,0 +1,9 @@
+- -- -- -- -- -- -- -- -
+[ cs cs cs BE cs cs cs ]
+[ cs cs cs cs cs cs cs ]
+[ cs cs cs cs cs cs cs ]
+[ cs cs O1 S1 T2 cs cs ]
+[ cs cs cs cs cs cs cs ]
+[ T1 S2 cs cs cs cs cs ]
+[ cs cs cs cs cs KI cs ]
+- -- -- -- -- -- -- -- -
