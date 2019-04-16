@@ -1,9 +1,9 @@
+//AKOS---nvm ebbe inkább nem nyúlok még bele--
 import java.io.IOException;
 import java.util.Scanner;
 
-//  PETI
-//  PETI
 public class Main {
+	
 	private static Scanner in;
 
 	public static void Teszt1() {

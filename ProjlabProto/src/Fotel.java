@@ -1,32 +1,23 @@
-// GABOR
-// GABOR
+//AKOS
 public class Fotel extends FixElem{
-	public void Fotelkodik(Panda p)
-	{
-		p.AffectedByFotel(this);
+	
+	public void Fotelkodik(Panda p){
+		for(Csempe cs : this.GetPosition().neighbours) {
+			if(this.GetActivity()) {
+			cs.GetElem().AffectedByFotel(this);/*p.AffectedByFotel(this); - HELYETT*/
+			}
+		}
 	}
 
 	@Override
-	public void CollideWithOrangutan(Orangutan o) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void CollideWithOrangutan(Orangutan o) {}
 
 	@Override
-	public void AffectedByJatekgep(JatekGep j) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void AffectedByJatekgep(JatekGep j) {}
 
 	@Override
-	public void AffectedByCsokiautomata(CsokiAutomata csa) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void AffectedByCsokiautomata(CsokiAutomata csa) {}
 
 	@Override
-	public void AffectedByFotel(Fotel f) {
-		// TODO Auto-generated method stub
-		
-	};
+	public void AffectedByFotel(Fotel f) {}
 }

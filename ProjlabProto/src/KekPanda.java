@@ -1,26 +1,18 @@
-// AGO
-// AGO
+//AKOS
 public class KekPanda extends Panda{
+	
 	@Override
-	public void AffectedByCsokiautomata(CsokiAutomata csa)
-	{
+	public void AffectedByCsokiautomata(CsokiAutomata csa){
 		this.Ugrik();
-	};
+	}
 
-	public void Ugrik()
-	{
-
+	public void Ugrik(){
 		this.GetPosition().Damage(this);
-
 	}
+	
 	@Override
-	public void AffectedByFotel(Fotel f) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void AffectedByFotel(Fotel f) {}
+	
 	@Override
-	public void AffectedByJatekgep(JatekGep j) {
-		// TODO Auto-generated method stub
-		
-	};
+	public void AffectedByJatekgep(JatekGep j) {}
 }

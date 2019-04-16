@@ -4,7 +4,7 @@ public class Kijarat extends Csempe{
 	@Override
 	public void SteppedOnByOrangutan (Orangutan o) {
 		Kilep(o);
-		}
+	}
 
 	public void Kilep (Orangutan o) {
 		o.Move(this);

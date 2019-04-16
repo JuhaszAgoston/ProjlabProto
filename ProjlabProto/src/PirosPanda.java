@@ -1,16 +1,12 @@
-// AGO
-// AGO
+//AKOS
 public class PirosPanda extends Panda{
 	@Override
-	public void AffectedByJatekgep(JatekGep j)
-	{
+	public void AffectedByJatekgep(JatekGep j){
 		this.Megijed();
 	}
 
-	public void Megijed()
-	{
-		//leader.RemovePandaFromSor(this);
+	public void Megijed(){
 		leader.FreePandaSor(leader.sor.indexOf(this));
-
+		this.leader = null;
 	}
 }

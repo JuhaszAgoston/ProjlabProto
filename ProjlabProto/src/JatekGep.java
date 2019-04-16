@@ -1,31 +1,21 @@
-// GABOR
-// GABOR
+//AKOS
 public class JatekGep extends FixElem{
-	public void Sipol(Panda p)
-	{
-
-		p.AffectedByJatekgep(this);
+	/*EZ SIPOL VOLT VALAMIERT*/
+	public void Csilingel(Panda p){
+		for(Csempe cs : this.GetPosition().neighbours) {
+			cs.GetElem().AffectedByJatekgep(this);
+		}
 	}
 
 	@Override
-	public void CollideWithOrangutan(Orangutan o) {
-	}
+	public void CollideWithOrangutan(Orangutan o) {}
 
 	@Override
-	public void AffectedByJatekgep(JatekGep j) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void AffectedByJatekgep(JatekGep j) {}
 
 	@Override
-	public void AffectedByCsokiautomata(CsokiAutomata csa) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void AffectedByCsokiautomata(CsokiAutomata csa) {}
 
 	@Override
-	public void AffectedByFotel(Fotel f) {
-		// TODO Auto-generated method stub
-		
-	};
+	public void AffectedByFotel(Fotel f) {}
 }

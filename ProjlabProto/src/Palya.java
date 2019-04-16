@@ -1,49 +1,30 @@
-//  PETI
-//  PETI
+//AKOS
 import java.util.List;
 import java.util.ArrayList;
 
 public class Palya {
-
+	/*ITT A LÁTHATÓSÁGOKNAK LEHET HOGY PUBLICNAK KÉNE LENNIE? MERT EGYES OBJEKTUMOK LÁTJÁK A PÁLYÁT*/
 	private static ArrayList<Panda> pandalist = new ArrayList<>();
 	private static ArrayList<Orangutan> jatekosok = new ArrayList<>();
-
-	private static int orangutan_life;
-
-	ArrayList<Csempe> tiles = new ArrayList<>();
-
+	private static ArrayList<Csempe> tiles = new ArrayList<>();
+	//private static int orangutan_life; --DEPRECATED? TÖBB ORÁNGUTÁN VAN
 	private static Bejarat bejarat;
-
 	private static Kijarat kijarat;
 	
 	
 	public static void NewOrangutan(Orangutan o) {
-		System.out.println("NewOrangutan");
-		orangutan_life--;
+		//orangutan_life--;//!!!!!!
 		bejarat.SetElem(o);
 		o.SetPosition(bejarat);
 	}
 	
-	public void NewPanda() {
-		// nincs ra teszt, nincs implementalva
-		
-		//random generaljunk 1-3ig hogy milyen szinut dobunk, 
-		//tileson keresunk egy olyat ahol ispandasteppable true, es hivunk egy moveot arra a csempere
-		
-	}
+	public void NewPanda() {}
 	
-	public static  void RemoveFromList(Panda p) {
-		
-	}
+	public static  void RemoveFromList(Panda p) {}
 	
-	public static void OrangutanKilep(Orangutan o) {
-		
-	}
+	public static void OrangutanKilep(Orangutan o) {}
 
-	private static void GameOver() {
-		// TODO Auto-generated method stub
-
-	}
+	private static void GameOver() {}
 
 	public List<Csempe> getTiles() {
 		return tiles;

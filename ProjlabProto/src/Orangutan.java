@@ -1,8 +1,7 @@
+//AKOS
 import java.util.ArrayList;
 import java.util.Iterator;
 
-//AKOS
-//AKOS
 public class Orangutan extends MozgoElem {
 
 	public ArrayList<Panda> sor = new ArrayList<Panda>();
@@ -19,13 +18,8 @@ public class Orangutan extends MozgoElem {
 		sor.add(0, p);
 	}
 
-	// public void PandatLeptet (Csempe cs) {}
-
 	public void FreePandaSor(int index) {
-
-		if (sor.isEmpty()) {
-			return;
-		}
+		if (sor.isEmpty()) {return;}
 
 		Iterator<Panda> iter = sor.listIterator(index);
 		while (iter.hasNext()) {
@@ -33,11 +27,9 @@ public class Orangutan extends MozgoElem {
 			temp.SetFree(true);
 			iter.remove();
 		}
-
 	}
 
 	public void RemovePandaFromSor(Panda p) {
-		// this.FreePandaSor(sor.indexOf(p));
 		this.sor.remove(p);
 	}
 
@@ -47,26 +39,25 @@ public class Orangutan extends MozgoElem {
 		this.position.RemoveElem();
 		if (safehouse > 0)
 			safehouse--;
-
 	}
 
 	public void LeaveSor() {
-		for (Panda p : this.sor)
+		for (Panda p : this.sor) {
 			RemovePandaFromSor(p);
+		}
 	}
 
 	@Override
 	public void Die() {
 		FreePandaSor(0);
-
 	}
 
 	@Override
 	public void CollideWithOrangutan(Orangutan o) {
 		if (this.GetSafehouse() == 0) {
-			for (Panda p : this.sor)
+			for (Panda p : this.sor) {
 				p.SetLeader(o);
-			
+			}
 			o.LeaveSor();
 			Csempe temp = o.GetPosition();
 			o.SetPosition(this.position);
@@ -79,18 +70,13 @@ public class Orangutan extends MozgoElem {
 	}
 
 	@Override
-	public void AffectedByJatekgep(JatekGep j) {
-
-	}
+	public void AffectedByJatekgep(JatekGep j) {}
 
 	@Override
-	public void AffectedByCsokiautomata(CsokiAutomata csa) {
-
-	}
+	public void AffectedByCsokiautomata(CsokiAutomata csa) {}
 
 	@Override
-	public void AffectedByFotel(Fotel f) {
-	}
+	public void AffectedByFotel(Fotel f) {}
 
 	public int GetSafehouse() {
 		return safehouse;
@@ -99,5 +85,4 @@ public class Orangutan extends MozgoElem {
 	public void SetSafehouse(int safehouse) {
 		this.safehouse = safehouse;
 	}
-
 }

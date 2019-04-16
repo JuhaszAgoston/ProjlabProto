@@ -1,15 +1,11 @@
-// AGO
-// AGO
+//AKOS
 public abstract class Panda extends MozgoElem {
+	
 	private boolean free = true;
 	protected Orangutan leader;
 
 	public boolean IsFree() {
-		if (free == true) {
-			return true;
-		} else {
-			return false;
-		}
+		return free;
 	}
 
 	public void Step() {
@@ -29,7 +25,6 @@ public abstract class Panda extends MozgoElem {
 			o.AddPandaToSor(this);
 		} else
 			o.Die();
-
 	}
 
 	public void SetFree(boolean b) {
@@ -46,28 +41,18 @@ public abstract class Panda extends MozgoElem {
 
 	@Override
 	public void Move(Csempe cs) {
-		// cs.Damage();
 		cs.SetElem(this);
 		this.SetPosition(cs);
-
 	}
 
 	@Override
-	public void AffectedByJatekgep(JatekGep j) {
-		// TODO Auto-generated method stub
-
-	}
+	public void AffectedByJatekgep(JatekGep j) {}
 
 	@Override
-	public void AffectedByCsokiautomata(CsokiAutomata csa) {
-		// TODO Auto-generated method stub
-
-	}
+	public void AffectedByCsokiautomata(CsokiAutomata csa) {}
 
 	@Override
-	public void AffectedByFotel(Fotel f) {
-
-	}
+	public void AffectedByFotel(Fotel f) {}
 
 	public void SetLeader(Orangutan o) {
 		leader = o;
