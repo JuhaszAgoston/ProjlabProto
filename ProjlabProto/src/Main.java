@@ -1,10 +1,65 @@
 //AKOS---nvm ebbe inkább nem nyúlok még bele--
+//GABOR filereader
 import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class Main {
 	
 	private static Scanner in;
+	
+	public static String[][] readFile(String filename) {
+		BufferedReader reader;
+		String[][] matrix = new String[0][0];
+		try {
+			//getting the sizes
+			int lineNum = 0;
+			int columnNum = 0;
+			reader = new BufferedReader(new FileReader("../../inputs/"+filename+"/"));
+			String lineForSize = reader.readLine();
+			String[] attr = lineForSize.split(" ");
+			
+			columnNum = attr.length-2; //geting columnNum count
+			while (lineForSize != null) {
+				lineNum++;
+			}
+			lineNum = lineNum-2; //lines readed minus the first and last
+			reader.close();
+			matrix = new String[lineNum][columnNum];
+			
+			reader = new BufferedReader(new FileReader("../../inputs/"+filename+"/"));
+			String line = reader.readLine();
+			while (line != null) {
+				System.out.println(line);
+				String[] attributes = line.split(" ");
+	            int i = 0;
+				
+				//getting the first and last line out
+				if(attributes[0] == "-" && attributes[1] == "--")
+	            {
+					//DO NOTHING
+	            }else {
+	            	//starts from 1 so the first [ symbol is ignored
+	            	//ends at length-1 so the last ] symbol is ignored
+					for(int j = 1 ; j < line.length()-1 ; j++){
+		            	attributes = reader.readLine().split(" ");
+		            	
+		            	//adding attributes to the program
+		            	matrix[i][j] = attributes[j];
+		            	
+		            }
+					i++;
+	            }
+				line = reader.readLine();
+			}
+			reader.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return matrix;
+	}
 
 	public static void Teszt1() {
 		// Teszt1 inic
@@ -446,6 +501,14 @@ public class Main {
 			case 17:
 				System.out.println("Orangutan masik Orangutannal utkozik");
 				Teszt17();
+				System.out.println("----------------------------------\r\n");
+				break;
+			case 20:
+				// reader teszt
+				System.out.println("READERTESZT \r\n");
+				String[][] tesztinput = readFile("readertesztinput.txt");
+				System.out.println(tesztinput[1][1]+ "\r\n");
+				System.out.println(tesztinput[2][2]+ "\r\n");
 				System.out.println("----------------------------------\r\n");
 				break;
 

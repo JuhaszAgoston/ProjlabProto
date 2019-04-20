@@ -1,12 +1,19 @@
 //  AKOS
+// GABOR x,y valtoztatas
 import java.util.ArrayList;
 import java.util.List;
 
 public class Csempe {
 
 	ArrayList<Csempe> neighbours = new ArrayList<>();
-	private Elem e = null; 
+	private Elem e = null;
+	
+	//sakktabla miatt kell kesobb ki lehet szedni
+	private int posX;
+	private int posY;
 
+	
+	
 	public List<Csempe> GetNeighbour() {
 		return neighbours;
 	}
@@ -58,5 +65,21 @@ public class Csempe {
 
 	public void SetElem(Elem e) {
 		this.e = e;
+	}
+
+	public int getPosX() {
+		return posX;
+	}
+
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+
+	public int getPosY() {
+		return posY;
+	}
+
+	public void setPosY(int posY) {
+		this.posY = posY;
 	}
 }
