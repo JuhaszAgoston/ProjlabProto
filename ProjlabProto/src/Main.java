@@ -11,47 +11,55 @@ public class Main {
 	
 	public static String[][] readFile(String filename) {
 		BufferedReader reader;
-		String[][] matrix = new String[0][0];
+		String[][] matrix = new String[100][100];
 		try {
 			//getting the sizes
 			int lineNum = 0;
 			int columnNum = 0;
-			reader = new BufferedReader(new FileReader("../../inputs/"+filename+"/"));
+			reader = new BufferedReader(new FileReader("../Inputs/"+filename));
 			String lineForSize = reader.readLine();
 			String[] attr = lineForSize.split(" ");
-			
-			columnNum = attr.length-2; //geting columnNum count
 			while (lineForSize != null) {
 				lineNum++;
+				lineForSize = reader.readLine();
 			}
-			lineNum = lineNum-2; //lines readed minus the first and last
+			
+			System.out.println(lineForSize);
+			columnNum = attr.length-2; //getting columnNum cou
+			lineNum = lineNum-2; //lines read minus the first and last
 			reader.close();
+			
 			matrix = new String[lineNum][columnNum];
 			
-			reader = new BufferedReader(new FileReader("../../inputs/"+filename+"/"));
+			reader = new BufferedReader(new FileReader("../Inputs/"+filename));
 			String line = reader.readLine();
+			int i = 0;
 			while (line != null) {
-				System.out.println(line);
+				//System.out.println(line);
+				line = reader.readLine();
 				String[] attributes = line.split(" ");
-	            int i = 0;
-				
+	            
 				//getting the first and last line out
 				if(attributes[0] == "-" && attributes[1] == "--")
 	            {
 					//DO NOTHING
+					//System.out.println("---\r\n");
 	            }else {
 	            	//starts from 1 so the first [ symbol is ignored
 	            	//ends at length-1 so the last ] symbol is ignored
-					for(int j = 1 ; j < line.length()-1 ; j++){
-		            	attributes = reader.readLine().split(" ");
+					for(int j = 0 ; j < attributes.length-1 ; j++){
+						matrix[i][j] = attributes[j];
 		            	
 		            	//adding attributes to the program
-		            	matrix[i][j] = attributes[j];
+		            	
+		            	//System.out.println(matrix[i][j]+"\r\n");
 		            	
 		            }
+					
 					i++;
 	            }
-				line = reader.readLine();
+				//line = reader.readLine();
+				attributes = line.split(" ");
 			}
 			reader.close();
 			

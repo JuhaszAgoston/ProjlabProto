@@ -10,13 +10,17 @@ public abstract class Elem {
 	abstract public void AffectedByCsokiautomata(CsokiAutomata csa);
 	abstract public void AffectedByFotel(Fotel f);
 
+	public Csempe GetPosition() {
+		return position;
+	}
+	
 	//x,y miatt irtam at return type csempe es return position;-rol erre
-	public int[] GetPosition() {
+	/*public int[] GetPosition() {
 		int[] pos = new int[2];
 		pos[1] = position.getPosX();
 		pos[2] =  position.getPosY();
 		return pos;
-	}
+	}*/
 
 	//setter x es y koordinitakmiatt ez lett
 	public void SetPosition(Csempe position) {
