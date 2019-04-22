@@ -13,7 +13,7 @@ public class Main {
 	
 	public static String[][] readFile(String filename) throws FileNotFoundException {
 		BufferedReader reader;
-		Scanner in = new Scanner(new File("input01.txt"));
+		Scanner in = new Scanner(new File(filename));
 		int lineNum = 7; int columnNum = 6;
 		String[][] result = new String[lineNum][columnNum];
 		List<String[]> lines = new ArrayList<>();
