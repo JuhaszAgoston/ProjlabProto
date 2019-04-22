@@ -1,4 +1,4 @@
-//AKOS---nvm ebbe inkább nem nyúlok még bele--
+//AKOS
 //GABOR filereader
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -51,7 +51,6 @@ public class Main {
 						matrix[i][j] = attributes[j];
 		            	
 		            	//adding attributes to the program
-		            	
 		            	//System.out.println(matrix[i][j]+"\r\n");
 		            	
 		            }
@@ -375,18 +374,6 @@ public class Main {
 		// Teszt15 run
 		System.out.println("-------run------");
 		p1.Step();
-
-	}
-	public static void Teszt16() {
-		//orangutan elhagyja a sorat
-		System.out.println("-------inic------");
-		System.out.println("-------run------");
-	}
-	public static void Teszt17() {
-		// orangutan masik orangutannal utkozik
-		System.out.println("-------inic------");
-		System.out.println("-------run------");
-
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -398,117 +385,92 @@ public class Main {
 			switch (menu) {
 			case 1:
 				// Orangutan mozgasa szabad csempere
-				System.out.println("Orangutan mozgasa szabad csempere\r\n");
+				System.out.println("Orangutan mozgasa szabad csempere.\r\n");
 				Teszt1();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 2:
-				// Orangutan lep olyan csempere ahol van egy jatekgep
-				System.out.println("Orangutan lep olyan csempere ahol van egy jatekgep \r\n");
+				// Orangutan mozog olyan csempere aminek meg van egynel tobb elete
+				System.out.println("Orangutan mozog gyenge csempere, aminek meg van egynel tobb elete.\r\n");
 				Teszt2();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 3:
-				// Orangutan mozog gyenge csempere, aminek meg egynel tobb elete van
-				System.out.println("Orangutan mozog gyenge csempere, aminek meg egynel tobb elete van\r\n");
+				// Orangutan mozog gyenge csempere ami eltorik(sor nelkul)
+				System.out.println("Orangutan mozog gyenge csempere ami eltorik (sor nelkul).\r\n");
 				Teszt3();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 4:
-				// Orangutan mozog gyenge csempere ami eltorik(sor nelkul)
-				System.out.println("Orangutan mozog gyenge csempere ami eltorik(sor nelkul)");
+				// Orangutan mozog gyenge csempere es az eltorik(ket elemu sorral)
+				System.out.println("Orangutan mozog gyenge csempere es az eltorik (ket elemu sorral).\r\n");
 				Teszt4();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 5:
-				// Orangutan mozog gyenge csempere es az eltorik(ket elemu sorral)
-				System.out.println("Orangutan mozog gyenge csempere es az eltorik(ket elemu sorral)");
+				// Panda mozog gyenge csempére és az eltorik
+				System.out.println("Panda mozog gyenge csempere es az eltorik.\r\n");
 				Teszt5();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 6:
-				// Panda mozog gyenge csemp�re �s az elt�rik
-				System.out.println("Panda mozog gyenge csempere es az eltorik");
+				// Orangutan pandaval talalkozik, ami szabad
+				System.out.println("Orangutan pandaval talalkozik, ami szabad.\r\n");
 				Teszt6();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 7:
-				// Or�ngut�n pand�val tal�lkozik, ami szabad
-				System.out.println("Orangutan pandaval talalkozik, ami szabad");
+				// Zold Panda mozog fotel mellett
+				System.out.println("Zold Panda mozog fotel mellett.\r\n");
 				Teszt7();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 8:
-				// Or�ngut�n szekr�nyen �tl�p
-				System.out.println("Orangutan szekrenyen atlep");
+				// Piros Panda mozog jatekgep mellett
+				System.out.println("Piros Panda mozog jatekgep mellett.\r\n");
 				Teszt8();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 9:
-				// Z�ldPanda mozog fotel mellett
-				System.out.println("ZoldPanda mozog fotel mellett");
+				// Kek Panda mozog csokiautomata mellett
+				System.out.println("Kek Panda mozog csokiautomata mellett\r\n");
 				Teszt9();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 10:
-				// PirosPanda mozog j�t�kg�p mellett
-				System.out.println("PirosPanda mozog jatekgep mellett");
+				// Orangutan szekrenyen atlep
+				System.out.println("Orangutan szekrenyen atlep.\r\n");
 				Teszt10();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 11:
-				// KekPanda mozog csokiautomata mellett
-				System.out.println("KekPanda mozog csokiautomata mellett");
+				// Orangutan kilep a kijaraton ket Pandaval
+				System.out.println("Orangutan kilep a kijaraton ket Pandaval\r\n");
 				Teszt11();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 12:
-				// Or�ngut�n kil�p a kij�raton k�t pand�val
-				System.out.println("Orangutan kilep a kijaraton ket pandaval");
+				// Orangutan Pandaval talalkozik ami nem szabad
+				System.out.println("Orangutan Pandaval talalkozik ami nem szabad.\r\n");
 				Teszt12();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 13:
-				// Or�ngut�n pand�val tal�lkozik, ami nem szabad
-				System.out.println("Orangutan pandaval talalkozik, ami nem szabad");
+				// Panda onalloan mozog (Step) egyetlen lepheto szomszedos csempere
+				System.out.println("Panda onalloan mozog (Step).\r\n");
 				Teszt13();
 				System.out.println("----------------------------------\r\n");
 				break;
-
 			case 14:
-				// Panda �n�ll�an mozog (Step) egyetlen l�phet� szomsz�dos mez�re
-				System.out.println("Panda onalloan mozog (Step) egyetlen lepheto szomszedos mezore");
+				// Orangutan masik Orangutannal talalkozik akinek elveszi a sorat
+				System.out.println("Orangutan masik Orangutannal talalkozik akinek elveszi a sorat.\r\n");
 				Teszt14();
 				System.out.println("----------------------------------\r\n");
-				System.out.flush();
 				break;
-
 			case 15:
-				// Panda �n�ll�an mozog (Step) de a szomsz�dos mez�n egy automata �ll
-				System.out.println("Panda onalloan mozog (Step) de a szomszedos mezon egy automata all");
+				// Orangutan masik Orangutannal talakozik akinek nem veheti el a sorat
+				System.out.println("Orangutan masik Orangutannal talalkozik akinek nem veheti el a sorat.\r\n");
 				Teszt15();
-				System.out.println("----------------------------------\r\n");
-				break;
-			case 16:
-				System.out.println("Orangutan elhagyja a sorat");
-				Teszt16();
-				System.out.println("----------------------------------\r\n");
-				break;
-			case 17:
-				System.out.println("Orangutan masik Orangutannal utkozik");
-				Teszt17();
 				System.out.println("----------------------------------\r\n");
 				break;
 			case 20:
