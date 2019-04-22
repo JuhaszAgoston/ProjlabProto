@@ -33,7 +33,7 @@ public class Main {
 			}
 			System.out.println("");
 		}
-		
+		//gec
 		return result;
 	}
 
