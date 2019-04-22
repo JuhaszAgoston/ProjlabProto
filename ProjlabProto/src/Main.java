@@ -1,71 +1,40 @@
 //AKOS
-//GABOR filereader
 import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 	
-	private static Scanner in;
-	
-	public static String[][] readFile(String filename) {
+	public static String[][] readFile(String filename) throws FileNotFoundException {
 		BufferedReader reader;
-		String[][] matrix = new String[100][100];
-		try {
-			//getting the sizes
-			int lineNum = 0;
-			int columnNum = 0;
-			reader = new BufferedReader(new FileReader("../Inputs/"+filename));
-			String lineForSize = reader.readLine();
-			String[] attr = lineForSize.split(" ");
-			while (lineForSize != null) {
-				lineNum++;
-				lineForSize = reader.readLine();
-			}
-			
-			System.out.println(lineForSize);
-			columnNum = attr.length-2; //getting columnNum cou
-			lineNum = lineNum-2; //lines read minus the first and last
-			reader.close();
-			
-			matrix = new String[lineNum][columnNum];
-			
-			reader = new BufferedReader(new FileReader("../Inputs/"+filename));
-			String line = reader.readLine();
-			int i = 0;
-			while (line != null) {
-				//System.out.println(line);
-				line = reader.readLine();
-				String[] attributes = line.split(" ");
-	            
-				//getting the first and last line out
-				if(attributes[0] == "-" && attributes[1] == "--")
-	            {
-					//DO NOTHING
-					//System.out.println("---\r\n");
-	            }else {
-	            	//starts from 1 so the first [ symbol is ignored
-	            	//ends at length-1 so the last ] symbol is ignored
-					for(int j = 0 ; j < attributes.length-1 ; j++){
-						matrix[i][j] = attributes[j];
-		            	
-		            	//adding attributes to the program
-		            	//System.out.println(matrix[i][j]+"\r\n");
-		            	
-		            }
-					
-					i++;
-	            }
-				//line = reader.readLine();
-				attributes = line.split(" ");
-			}
-			reader.close();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
+		Scanner in = new Scanner(new File("input01.txt"));
+		int lineNum = 7; int columnNum = 6;
+		String[][] result = new String[lineNum][columnNum];
+		List<String[]> lines = new ArrayList<>();
+		while(in.hasNextLine()) {
+		    String line = in.nextLine().trim();
+		    String[] split = line.split(" ");
+		    lines.add(split);
 		}
-		return matrix;
+		for(int i = 0; i<result.length; i++) {
+		    result[i] = lines.get(i);
+		}
+
+		//kiírom hogy lássuk miageci van
+		for (int i = 0; i < 6; ++i) {
+			for(int j = 0; j < 7; ++j) {
+				System.out.print(result[i][j]); System.out.print(" ");
+			}
+			System.out.println("");
+		}
+		
+		return result;
 	}
 
 	public static void Teszt1() {
@@ -130,7 +99,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		in = new Scanner(System.in);
+		readFile("input01.txt");
+		Scanner in = new Scanner(System.in);
 	
 		while (true) {
 			int menu = in.nextInt();
@@ -185,7 +155,7 @@ public class Main {
 				break;
 			case 9:
 				// Kek Panda mozog csokiautomata mellett
-				System.out.println("Kek Panda mozog csokiautomata mellett\r\n");
+				System.out.println("Kek Panda mozog csokiautomata mellett.\r\n");
 				Teszt9();
 				System.out.println("----------------------------------\r\n");
 				break;
@@ -197,7 +167,7 @@ public class Main {
 				break;
 			case 11:
 				// Orangutan kilep a kijaraton ket Pandaval
-				System.out.println("Orangutan kilep a kijaraton ket Pandaval\r\n");
+				System.out.println("Orangutan kilep a kijaraton ket Pandaval.\r\n");
 				Teszt11();
 				System.out.println("----------------------------------\r\n");
 				break;
