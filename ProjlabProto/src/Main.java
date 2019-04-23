@@ -11,10 +11,11 @@ import java.util.Scanner;
 
 public class Main {
 	
-	public static String[][] readFile(String filename) throws FileNotFoundException {
-		BufferedReader reader;
+	public static String[][] ReadMapFile(String filename) throws FileNotFoundException {
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(new File(filename));
-		int lineNum = 7; int columnNum = 6;
+		int lineNum = 7; 
+		int columnNum = 7;
 		String[][] result = new String[lineNum][columnNum];
 		List<String[]> lines = new ArrayList<>();
 		while(in.hasNextLine()) {
@@ -26,16 +27,33 @@ public class Main {
 		    result[i] = lines.get(i);
 		}
 
-		//kiírom hogy lássuk miageci van
-		for (int i = 0; i < 6; ++i) {
-			for(int j = 0; j < 7; ++j) {
-				System.out.print(result[i][j]); System.out.print(" ");
-			}
-			System.out.println("");
-		}
-		//gec
 		return result;
 	}
+	
+	public static void DisplayMapFile(String[][] a) {
+				for (int i = 0; i < 7; ++i) {
+					for(int j = 0; j < 7; ++j) {
+						System.out.print(a[i][j]); System.out.print(" ");
+					}
+					System.out.println("");
+				}
+				System.out.println("");
+	}
+	
+	public static void TesztCheck(String [][] a, String [][] b) {
+		for (int i = 0; i < 7; ++i) {
+			for(int j = 0; j < 7; ++j) {
+				if(a[i][j] != b[i][j]) {
+					System.out.println("A teszt elbukott (" + i + " ; " + j + ") pontban.");
+					return; // ha nem egyezik a ket matrix barmelyik pontja ki kell lepnunk
+				}
+			}
+		}
+		System.out.println("A teszt sikeres"); // ide csak akkor jutunk el ha vegigfutottunk a teljes matrixon
+		return;
+	}
+	
+	
 
 	public static void Teszt1() {
 		
@@ -99,7 +117,15 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		readFile("input01.txt");
+		String[][] a = ReadMapFile("input01.txt");
+		DisplayMapFile(a);
+		String[][] b = ReadMapFile("input02.txt");
+		DisplayMapFile(b);
+		
+		TesztCheck(a,a);
+		TesztCheck(a,b);
+		
+		
 		Scanner in = new Scanner(System.in);
 	
 		while (true) {
@@ -195,15 +221,6 @@ public class Main {
 				Teszt15();
 				System.out.println("----------------------------------\r\n");
 				break;
-			case 20:
-				// reader teszt
-				System.out.println("READERTESZT \r\n");
-				String[][] tesztinput = readFile("readertesztinput.txt");
-				System.out.println(tesztinput[1][1]+ "\r\n");
-				System.out.println(tesztinput[2][2]+ "\r\n");
-				System.out.println("----------------------------------\r\n");
-				break;
-
 			default:
 				System.exit(0);
 			}
