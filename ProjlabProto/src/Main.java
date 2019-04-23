@@ -248,8 +248,7 @@ public class Main {
 			cs.AddNeighbour(p.GetATile(x-1, y));
 			cs.AddNeighbour(p.GetATile(x+1, y));
 			cs.AddNeighbour(p.GetATile(x, y-1));
-			cs.AddNeighbour(p.GetATile(x, y+1));
-			
+			cs.AddNeighbour(p.GetATile(x, y+1));	
 		}
 		
 	}
@@ -308,36 +307,57 @@ public class Main {
 	public static void Teszt2() throws FileNotFoundException {
 		input = ReadMapFile("input02.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output02.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt3() throws FileNotFoundException {
 		input = ReadMapFile("input03.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output03.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt4() throws FileNotFoundException {
 		input = ReadMapFile("input04.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output04.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt5() throws FileNotFoundException {
 		input = ReadMapFile("input05.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output05.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt6() throws FileNotFoundException {
 		input = ReadMapFile("input06.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output06.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt7() throws FileNotFoundException {
 		input = ReadMapFile("input07.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output07.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt8() throws FileNotFoundException {
 		input = ReadMapFile("input08.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output08.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt9() throws FileNotFoundException {
@@ -348,31 +368,49 @@ public class Main {
 	public static void Teszt10() throws FileNotFoundException {
 		input = ReadMapFile("input10.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output10.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt11() throws FileNotFoundException {
 		input = ReadMapFile("input11.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output11.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt12() throws FileNotFoundException {
 		input = ReadMapFile("input12.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output12.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt13() throws FileNotFoundException {
 		input = ReadMapFile("input13.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output13.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt14() throws FileNotFoundException {
 		input = ReadMapFile("input14.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output14.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt15() throws FileNotFoundException {
 		input = ReadMapFile("input15.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output15.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		TesztCheck(input, p.palya);
 	}
 	public static void menuPrint() {
 		System.out.println("A tesztesetek:");
@@ -395,11 +433,9 @@ public class Main {
 	}
 
 	public static void main(String[] args) throws IOException {
-
-
 		
 		Scanner in = new Scanner(System.in);
-	
+		menuPrint();
 		while (true) {
 			int menu = in.nextInt();
 			switch (menu) {
