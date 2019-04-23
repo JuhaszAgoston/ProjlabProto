@@ -2,6 +2,6 @@ cs cs cs BE cs cs cs
 cs cs cs cs cs cs cs
 cs cs cs cs cs cs cs
 cs cs cs cs cs cs cs
-cs cs cs O1 cs cs cs
+cs cs O1 P1 cs cs cs
 cs cs cs cs cs cs cs
 cs cs cs cs cs KI cs
