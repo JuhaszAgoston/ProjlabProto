@@ -255,14 +255,14 @@ public class Main {
 		System.out.println("A teszt sikeres"); // ide csak akkor jutunk el ha vegigfutottunk a teljes matrixon
 	}
 	
-	
+	public static String[][] input;
+	public static String[][] output;
 
 	public static void Teszt1() throws FileNotFoundException {
-		/*ReadMapFile kódrészlet*/
-		String[][] input = ReadMapFile("input01.txt");
-		String[][] output = ReadMapFile("output01.txt");
-		/*Pályalétrehozó kódrészlet*/
-		Palya p = new Palya();
+		input = ReadMapFile("input01.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output01.txt");
+		
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
 		/*Lépés fv*/
 		//lepunk es korrigaljuk a p.paja-t
@@ -270,60 +270,74 @@ public class Main {
 		TesztCheck(output, p.paja);
 	}
 
-	public static void Teszt2() {
-		
+	public static void Teszt2() throws FileNotFoundException {
+		input = ReadMapFile("input02.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output02.txt");
 	}
 
-	public static void Teszt3() {
-
+	public static void Teszt3() throws FileNotFoundException {
+		input = ReadMapFile("input03.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output03.txt");
 	}
 
-	public static void Teszt4() {
-
+	public static void Teszt4() throws FileNotFoundException {
+		input = ReadMapFile("input04.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output04.txt");
 	}
 
-	public static void Teszt5() {
-
+	public static void Teszt5() throws FileNotFoundException {
+		input = ReadMapFile("input05.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output05.txt");
 	}
 
-	public static void Teszt6() {
-
+	public static void Teszt6() throws FileNotFoundException {
+		input = ReadMapFile("input06.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output06.txt");
 	}
 
-	public static void Teszt7() {
-
+	public static void Teszt7() throws FileNotFoundException {
+		input = ReadMapFile("input07.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output07.txt");
 	}
 
-	public static void Teszt8() {
-		
+	public static void Teszt8() throws FileNotFoundException {
+		input = ReadMapFile("input08.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output08.txt");
 	}
 
-	public static void Teszt9() {
-		
+	public static void Teszt9() throws FileNotFoundException {
+		input = ReadMapFile("input09.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output09.txt");
 	}
 
-	public static void Teszt10() {
-
+	public static void Teszt10() throws FileNotFoundException {
+		input = ReadMapFile("input10.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output10.txt");
 	}
 
-	public static void Teszt11() {
-		
+	public static void Teszt11() throws FileNotFoundException {
+		input = ReadMapFile("input11.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output11.txt");
 	}
 
-	public static void Teszt12() {
-
+	public static void Teszt12() throws FileNotFoundException {
+		input = ReadMapFile("input12.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output12.txt");
 	}
 
-	public static void Teszt13() {
-
+	public static void Teszt13() throws FileNotFoundException {
+		input = ReadMapFile("input13.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output13.txt");
 	}
 
-	public static void Teszt14() {
-
+	public static void Teszt14() throws FileNotFoundException {
+		input = ReadMapFile("input14.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output14.txt");
 	}
 
-	public static void Teszt15() {
-	
+	public static void Teszt15() throws FileNotFoundException {
+		input = ReadMapFile("input15.txt");		/*ReadMapFile kódrészlet*/
+		output = ReadMapFile("output15.txt");
 	}
 	public static void menuPrint() {
 		System.out.println("A tesztesetek:");
