@@ -301,7 +301,10 @@ public class Main {
 		output = ReadMapFile("output01.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		p.getTiles();
+		
+		p.palya[3][2]= "cs"; p.palya[3][3]="O1";
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt2() throws FileNotFoundException {
