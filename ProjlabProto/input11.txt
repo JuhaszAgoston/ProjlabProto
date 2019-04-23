@@ -1,8 +1,7 @@
 cs cs cs BE cs cs cs
 cs cs cs cs cs cs cs
-cs cs cs cs cs cs cs 
-cs cs P1 O1 cs cs cs
 cs cs cs cs cs cs cs
-cs cs cs cs cs cs cs
+cs cs cs cs cs P1 cs
+cs cs cs cs cs K1 cs
+cs cs cs cs cs O1 cs
 cs cs cs cs cs KI cs
-
