@@ -1,4 +1,4 @@
-//AKOS
+//Gabor
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,6 +10,141 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+	
+	public static void createMapFromArray(String[][] map) {
+		Palya p = new Palya();
+		
+		//tomb feltoltese sima csempekkel
+		Csempe[][] csempeArray = new Csempe[7][7]; 
+		for (int i = 0; i < 7; ++i) {
+			for(int j = 0; j < 7; ++j) {
+				//ha ezek a pos ok kellenek...
+				csempeArray[i][j].setPosX(i);
+				csempeArray[i][j].setPosY(j);
+			}
+		}
+		
+		String ch;
+		char[] cha = new char[1];
+		int num;
+		
+		for (int i = 0; i < 7; ++i) {
+			for(int j = 0; j < 7; ++j) {
+				switch(map[i][j]){
+					case "cs":
+						p.setTiles(csempeArray[i][j]);
+						break;
+					case "G":
+						//splitting to get num
+						ch = map[i][j];
+						cha = new char[1];
+						ch.getChars(1, 1, cha, 0);
+						System.out.println(cha + "\r\n");
+						num = Integer.parseInt(String.valueOf(cha));
+						
+						GyengeCsempe gy = new GyengeCsempe();
+						gy.setPosX(i);
+						gy.setPosY(j);
+						gy.SetLife(num);
+						p.setTiles(gy);
+						break;
+					//be es kijaratnal igy a csempeArrayben bent marad a helyukon a csempe, de nem hasznaljuk
+					case "BE":
+						Bejarat be = new Bejarat();
+						be.setPosX(i);
+						be.setPosY(j);
+						p.setTiles(be);
+						break;
+					case "KI":
+						Kijarat ki = new Kijarat();
+						ki.setPosX(i);
+						ki.setPosY(j);
+						p.setTiles(ki);
+						break;
+					case "O":
+						//splitting to get num
+						ch = map[i][j];
+						cha = new char[1];
+						ch.getChars(1, 1, cha, 0);
+						System.out.println(cha + "\r\n");
+						String stringCha = cha.toString();
+						
+						//szamit mi a valtozo neve..?
+						//szerintem külön orangutan attributum kéne a kezeléséhez
+						Orangutan O = new Orangutan();
+						O.SetPosition(csempeArray[i][j]);
+						csempeArray[i][j].SetElem(O);
+						p.setTiles(csempeArray[i][j]);
+						break;
+					case "s":
+						//splitting to get num
+						ch = map[i][j];
+						cha = new char[1];
+						ch.getChars(1, 1, cha, 0);
+						num = Integer.parseInt(String.valueOf(cha));
+						Szekreny s = new Szekreny();
+						csempeArray[i][j].SetElem(s);
+						
+						//melyik szekrénynek a kezeléséhez szerintem külön attributum kéne
+						p.setTiles(csempeArray[i][j]);
+						break;
+					case "t":
+						//kezelni kell kinek a targetje de ahhoz szerintem kéne az az attributum
+						break;
+					case "##":
+						GyengeCsempe gycs = new GyengeCsempe();
+						gycs.SetLife(0);
+						gycs.setPosX(i);
+						gycs.setPosY(j);
+						p.setTiles(gycs);
+						break;
+					case "au":
+						CsokiAutomata csa = new CsokiAutomata();
+						csa.SetPosition(csempeArray[i][j]);
+						csempeArray[i][j].SetElem(csa);
+						p.setTiles(csempeArray[i][j]);
+						break;
+					case "jt":
+						JatekGep jt = new JatekGep();
+						jt.SetPosition(csempeArray[i][j]);
+						csempeArray[i][j].SetElem(jt);
+						p.setTiles(csempeArray[i][j]);
+						break;
+					case "fe":
+						Fotel fe = new Fotel();
+						fe.SetPosition(csempeArray[i][j]);
+						csempeArray[i][j].SetElem(fe);
+						p.setTiles(csempeArray[i][j]);						
+						break;
+					case "K":
+						//leadert/sort allitani kell
+						Panda kp = new KekPanda();
+						kp.SetPosition(csempeArray[i][j]);
+						csempeArray[i][j].SetElem(kp);
+						p.setTiles(csempeArray[i][j]);
+						break;
+					case "P":
+						//leadert/sort allitani kell
+						Panda pp = new PirosPanda();
+						pp.SetPosition(csempeArray[i][j]);
+						csempeArray[i][j].SetElem(pp);
+						p.setTiles(csempeArray[i][j]);
+						break;
+					case "Z":
+						//leadert/sort allitani kell
+						Panda zp = new ZoldPanda();
+						zp.SetPosition(csempeArray[i][j]);
+						csempeArray[i][j].SetElem(zp);
+						p.setTiles(csempeArray[i][j]);
+						break;
+					default:
+						System.exit(0);			
+				}
+			}
+			//System.out.println("");
+		}
+		//System.out.println("");
+	}
 	
 	public static String[][] ReadMapFile(String filename) throws FileNotFoundException {
 		@SuppressWarnings("resource")
@@ -143,7 +278,7 @@ public class Main {
 		
 		TesztCheck(a,a);
 		TesztCheck(a,b);
-		
+		createMapFromArray(a);
 		
 		Scanner in = new Scanner(System.in);
 	
