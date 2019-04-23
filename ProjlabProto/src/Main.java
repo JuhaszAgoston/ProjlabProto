@@ -11,18 +11,32 @@ import java.util.Scanner;
 
 public class Main {
 	
-	public static void createMapFromArray(String[][] map) {
-		Palya p = new Palya();
+	public static void createMapFromArray(String[][] map, Palya p) {
 		
-		//tomb feltoltese sima csempekkel
-		Csempe[][] csempeArray = new Csempe[7][7]; 
+		//feltoltunk egy palyat 7x7 csempevel
 		for (int i = 0; i < 7; ++i) {
 			for(int j = 0; j < 7; ++j) {
-				//ha ezek a pos ok kellenek...
-				csempeArray[i][j].setPosX(i);
-				csempeArray[i][j].setPosY(j);
+				Csempe cs = new Csempe();
+				cs.setPosX(j);
+				cs.setPosY(i);
+				p.setTiles(cs);
 			}
 		}
+		// osszelinkeljuk a szomszedokat
+		for(Csempe cs: p.getTiles()) {
+			int x = cs.getPosX();
+			int y = cs.getPosY();
+			
+			cs.AddNeighbour(p.GetATile(x-1, y));
+			cs.AddNeighbour(p.GetATile(x+1, y));
+			cs.AddNeighbour(p.GetATile(x, y-1));
+			cs.AddNeighbour(p.GetATile(x, y+1));
+		}
+		
+		// innentol kellene megcsinalni, elvileg ha minden jol megy akkor fel van toltve a map 7x7 csempvel
+		//	es mindegyik tudja hogy merre vannak szomszedjai, ahol "fal"van abban az iranyban egy nullt tarol. 
+		// most kellene azt megoldani hogy a beolvasott mapnak megfeleloen cserelje ki a gyenge csempeket, meg bejartot meg kijartot
+		// aztan ha az megvan, pakolja ra az elemeket ( panda orangutan es a gepek) 
 		
 		String ch;
 		char[] cha = new char[1];
