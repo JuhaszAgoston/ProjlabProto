@@ -17,13 +17,13 @@ public class Main {
 		for (int i = 0; i < 7; ++i) {
 			for(int j = 0; j < 7; ++j) {
 				String s = map[i][j];
+				p.palya = map.clone();
 				switch(s) {
 					case "cs":
 						Csempe cs = new Csempe();
 						cs.setPosX(j);
 						cs.setPosY(i);
 						p.setTiles(cs);
-						p.paja[i][j] = map[i][j];
 						break;
 						
 					case "BE":
@@ -31,7 +31,7 @@ public class Main {
 						be.setPosX(j);
 						be.setPosY(i);
 						p.setTiles(be);
-						p.paja[i][j] = map[i][j];
+						p.SetBejarat(be);
 						break;
 						
 					case "KI":
@@ -39,7 +39,7 @@ public class Main {
 						ki.setPosX(j);
 						ki.setPosY(i);
 						p.setTiles(ki);
-						p.paja[i][j] = map[i][j];
+						p.SetKijarat(ki);
 						break;
 						
 					case "JT":
@@ -50,7 +50,6 @@ public class Main {
 						jcs.SetElem(jt);
 						jt.SetPosition(jcs);
 						p.setTiles(jcs);
-						p.paja[i][j] = map[i][j];
 						break;
 						
 					case "FE":
@@ -61,7 +60,6 @@ public class Main {
 						fcs.SetElem(f);
 						f.SetPosition(fcs);
 						p.setTiles(fcs);
-						p.paja[i][j] = map[i][j];
 						break;
 						
 					case "AU":
@@ -72,75 +70,117 @@ public class Main {
 						aucs.SetElem(csau);
 						csau.SetPosition(aucs);
 						p.setTiles(aucs);
-						p.paja[i][j] = map[i][j];
 						break;
 						
 					case "O1":
 					case "O2":
-					case "O3":
 						Csempe ocs = new Csempe();
 						Orangutan o = new Orangutan();
 						ocs.setPosX(j);
 						ocs.setPosY(i);
 						ocs.SetElem(o);
-						//o.SetPosition(ocs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
-						o.setPosX(ocs.getPosX());
-						o.setPosY(ocs.getPosY());
+						o.SetPosition(ocs);  
 						p.setTiles(ocs);
-						p.paja[i][j] = map[i][j];
 						break;
 						
 					case "P0":
-					case "P1":
-					case "P2":
 						Csempe pcs = new Csempe();
 						PirosPanda pp = new PirosPanda();
+						pp.SetFree(true);
 						pcs.setPosX(j);
 						pcs.setPosY(i);
 						pcs.SetElem(pp);
-						//pp.SetPosition(pcs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
-					    pp.setPosX(pcs.getPosX());
-						pp.setPosY(pcs.getPosY());
+						pp.SetPosition(pcs);  
 						p.setTiles(pcs);
-						p.paja[i][j] = map[i][j];
+						p.setPandalist(pp);
+						break;
+					case "P1":
+						Csempe p1cs = new Csempe();
+						PirosPanda pp1 = new PirosPanda();
+						pp1.SetFree(false);
+						pp1.SetLeader(o); // ez igy offos
+						p1cs.setPosX(j);
+						p1cs.setPosY(i);
+						p1cs.SetElem(pp1);
+						pp1.SetPosition(p1cs);  
+						p.setTiles(p1cs);
+						p.setPandalist(pp1);
+						break;
+					case "P2":
+						Csempe p2cs = new Csempe();
+						PirosPanda pp2 = new PirosPanda();
+						pp2.SetFree(false);
+						pp2.SetLeader(o); // ez igy offos
+						p2cs.setPosX(j);
+						p2cs.setPosY(i);
+						p2cs.SetElem(pp2);
+						pp2.SetPosition(p2cs);  
+						p.setTiles(p2cs);
+						p.setPandalist(pp2);
 						break;
 						
 					case "K0":
-					case "K1":
-					case "K2":
 						Csempe kcs = new Csempe();
 						KekPanda kp = new KekPanda();
+						kp.SetFree(true);
 						kcs.setPosX(j);
 						kcs.setPosY(i);
 						kcs.SetElem(kp);
-						//pp.SetPosition(pcs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
-					    kp.setPosX(kcs.getPosX());
-						kp.setPosY(kcs.getPosY());
+						kp.SetPosition(kcs);  
 						p.setTiles(kcs);
-						p.paja[i][j] = map[i][j];
+						p.setPandalist(kp);
+					case "K1":
+						Csempe k1cs = new Csempe();
+						KekPanda k1p = new KekPanda();
+						k1p.SetFree(false);
+						k1cs.setPosX(j);
+						k1cs.setPosY(i);
+						k1cs.SetElem(k1p);
+						k1p.SetPosition(k1cs);  
+						p.setTiles(k1cs);
+						p.setPandalist(k1p);
+						break;
+					case "K2":
+						Csempe k2cs = new Csempe();
+						KekPanda k2p = new KekPanda();
+						k2p.SetFree(false);
+						k2cs.setPosX(j);
+						k2cs.setPosY(i);
+						k2cs.SetElem(k2p);
+						k2p.SetPosition(k2cs);  
+						p.setTiles(k2cs);
+						p.setPandalist(k2p);
 						break;
 						
 					case "Z0":
-					case "Z1":
-					case "Z2":
 						Csempe zcs = new Csempe();
 						ZoldPanda zp = new ZoldPanda();
+						zp.SetFree(true);
 						zcs.setPosX(j);
 						zcs.setPosY(i);
 						zcs.SetElem(zp);
-						//pp.SetPosition(pcs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
-					    zp.setPosX(zcs.getPosX());
-						zp.setPosY(zcs.getPosY());
+						zp.SetPosition(zcs);  
 						p.setTiles(zcs);
-						p.paja[i][j] = map[i][j];
+						break;
+					case "Z1":
+						Csempe z1cs = new Csempe();
+						ZoldPanda z1p = new ZoldPanda();
+						z1p.SetFree(false);
+						z1cs.setPosX(j);
+						z1cs.setPosY(i);
+						z1cs.SetElem(z1p);
+						z1p.SetPosition(z1cs);  
+						p.setTiles(z1cs);
+						break;
+					case "Z2":
+						Csempe z2cs = new Csempe();
+						ZoldPanda z2p = new ZoldPanda();
+						z2p.SetFree(false);
+						z2cs.setPosX(j);
+						z2cs.setPosY(i);
+						z2cs.SetElem(z2p);
+						z2p.SetPosition(z2cs);  
+						p.setTiles(z2cs);
 						break;
 
 					case "S0":
@@ -151,17 +191,10 @@ public class Main {
 						scs.setPosX(j);
 						scs.setPosY(i);
 						scs.SetElem(sz);
-						//pp.SetPosition(pcs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
-					    sz.setPosX(scs.getPosX());
-						sz.setPosY(scs.getPosY());
+						sz.SetPosition(scs);  
 						p.setTiles(scs);
-						p.paja[i][j] = map[i][j];
 						break;
 						
-					//ezt meg ki kell talalni hogy linkeljuk ossze a szekrennyel
-					//pl. mi van ha elobb van egy target es meg nincs meg a szekreny?
 					case "T0":
 					case "T1":
 					case "T2":
@@ -169,7 +202,7 @@ public class Main {
 						target.setPosX(j);
 						target.setPosY(i);
 						p.setTiles(target);
-						p.paja[i][j] = map[i][j];
+
 						break;
 						
 					case "G1":
@@ -178,7 +211,6 @@ public class Main {
 						gycs1.setPosY(i);
 						gycs1.SetLife(1);
 						p.setTiles(gycs1);
-						p.paja[i][j] = map[i][j];
 						break;
 						
 					case "G2":
@@ -187,7 +219,6 @@ public class Main {
 						gycs2.setPosY(i);
 						gycs2.SetLife(2);
 						p.setTiles(gycs2);
-						p.paja[i][j] = map[i][j];
 						break;
 						
 					case "G9":
@@ -196,7 +227,6 @@ public class Main {
 						gycs9.setPosY(i);
 						gycs9.SetLife(10);
 						p.setTiles(gycs9);
-						p.paja[i][j] = map[i][j];
 						break;
 						
 						
@@ -263,16 +293,10 @@ public class Main {
 	
 
 	public static void Teszt1() throws FileNotFoundException {
-		/*ReadMapFile kódrészlet*/
 		String[][] input = ReadMapFile("input01.txt");
-		String[][] output = ReadMapFile("output01.txt");
-		/*Pályalétrehozó kódrészlet*/
 		Palya p = new Palya();
 		createMapFromArray(input, p);
-		/*Lépés fv*/
-		//lepunk es korrigaljuk a p.paja-t
-		/*TesztCheck kódrészlet*/
-		TesztCheck(output, p.paja);
+		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt2() {
@@ -352,20 +376,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		System.out.println("INPUT");
-		String[][] a = ReadMapFile("input01.txt");
-		DisplayMapFile(a);
-		
-		//String[][] b = ReadMapFile("input02.txt");
-		System.out.println("OUTPUT");
-		String[][] output = ReadMapFile("output01.txt");
-		DisplayMapFile(output);
-		
-		Palya p = new Palya();
-		createMapFromArray(a, p);
-	
-		TesztCheck(a, a);
-		TesztCheck(a, p.paja);
+
 		
 		Scanner in = new Scanner(System.in);
 	
