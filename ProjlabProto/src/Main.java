@@ -12,16 +12,200 @@ import java.util.Scanner;
 public class Main {
 	
 	public static void createMapFromArray(String[][] map, Palya p) {
-		
+
 		//feltoltunk egy palyat 7x7 csempevel
 		for (int i = 0; i < 7; ++i) {
 			for(int j = 0; j < 7; ++j) {
-				Csempe cs = new Csempe();
-				cs.setPosX(j);
-				cs.setPosY(i);
-				p.setTiles(cs);
+				String s = map[i][j];
+				switch(s) {
+					case "cs":
+						Csempe cs = new Csempe();
+						cs.setPosX(j);
+						cs.setPosY(i);
+						p.setTiles(cs);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "BE":
+						Bejarat be = new Bejarat();
+						be.setPosX(j);
+						be.setPosY(i);
+						p.setTiles(be);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "KI":
+						Kijarat ki = new Kijarat();
+						ki.setPosX(j);
+						ki.setPosY(i);
+						p.setTiles(ki);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "JT":
+						Csempe jcs = new Csempe();
+						JatekGep jt = new JatekGep();
+						jcs.setPosX(j);
+						jcs.setPosY(i);
+						jcs.SetElem(jt);
+						jt.SetPosition(jcs);
+						p.setTiles(jcs);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "FE":
+						Csempe fcs = new Csempe();
+						Fotel f = new Fotel();
+						fcs.setPosX(j);
+						fcs.setPosY(i);
+						fcs.SetElem(f);
+						f.SetPosition(fcs);
+						p.setTiles(fcs);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "AU":
+						Csempe aucs = new Csempe();
+						CsokiAutomata csau = new CsokiAutomata();
+						aucs.setPosX(j);
+						aucs.setPosY(i);
+						aucs.SetElem(csau);
+						csau.SetPosition(aucs);
+						p.setTiles(aucs);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "O1":
+					case "O2":
+					case "O3":
+						Csempe ocs = new Csempe();
+						Orangutan o = new Orangutan();
+						ocs.setPosX(j);
+						ocs.setPosY(i);
+						ocs.SetElem(o);
+						//o.SetPosition(ocs);  
+						//nem tudom miert de ez nullpointerexception-t dob, 
+						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+						o.setPosX(ocs.getPosX());
+						o.setPosY(ocs.getPosY());
+						p.setTiles(ocs);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "P0":
+					case "P1":
+					case "P2":
+						Csempe pcs = new Csempe();
+						PirosPanda pp = new PirosPanda();
+						pcs.setPosX(j);
+						pcs.setPosY(i);
+						pcs.SetElem(pp);
+						//pp.SetPosition(pcs);  
+						//nem tudom miert de ez nullpointerexception-t dob, 
+						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+					    pp.setPosX(pcs.getPosX());
+						pp.setPosY(pcs.getPosY());
+						p.setTiles(pcs);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "K0":
+					case "K1":
+					case "K2":
+						Csempe kcs = new Csempe();
+						KekPanda kp = new KekPanda();
+						kcs.setPosX(j);
+						kcs.setPosY(i);
+						kcs.SetElem(kp);
+						//pp.SetPosition(pcs);  
+						//nem tudom miert de ez nullpointerexception-t dob, 
+						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+					    kp.setPosX(kcs.getPosX());
+						kp.setPosY(kcs.getPosY());
+						p.setTiles(kcs);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "Z0":
+					case "Z1":
+					case "Z2":
+						Csempe zcs = new Csempe();
+						ZoldPanda zp = new ZoldPanda();
+						zcs.setPosX(j);
+						zcs.setPosY(i);
+						zcs.SetElem(zp);
+						//pp.SetPosition(pcs);  
+						//nem tudom miert de ez nullpointerexception-t dob, 
+						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+					    zp.setPosX(zcs.getPosX());
+						zp.setPosY(zcs.getPosY());
+						p.setTiles(zcs);
+						p.paja[i][j] = map[i][j];
+						break;
+
+					case "S0":
+					case "S1":
+					case "S2":
+						Csempe scs = new Csempe();
+						Szekreny sz = new Szekreny();
+						scs.setPosX(j);
+						scs.setPosY(i);
+						scs.SetElem(sz);
+						//pp.SetPosition(pcs);  
+						//nem tudom miert de ez nullpointerexception-t dob, 
+						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+					    sz.setPosX(scs.getPosX());
+						sz.setPosY(scs.getPosY());
+						p.setTiles(scs);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					//ezt meg ki kell talalni hogy linkeljuk ossze a szekrennyel
+					//pl. mi van ha elobb van egy target es meg nincs meg a szekreny?
+					case "T0":
+					case "T1":
+					case "T2":
+						Csempe target = new Csempe();
+						target.setPosX(j);
+						target.setPosY(i);
+						p.setTiles(target);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "G1":
+						GyengeCsempe gycs1 = new GyengeCsempe();
+						gycs1.setPosX(j);
+						gycs1.setPosY(i);
+						gycs1.SetLife(1);
+						p.setTiles(gycs1);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "G2":
+						GyengeCsempe gycs2 = new GyengeCsempe();
+						gycs2.setPosX(j);
+						gycs2.setPosY(i);
+						gycs2.SetLife(2);
+						p.setTiles(gycs2);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+					case "G9":
+						GyengeCsempe gycs9 = new GyengeCsempe();
+						gycs9.setPosX(j);
+						gycs9.setPosY(i);
+						gycs9.SetLife(10);
+						p.setTiles(gycs9);
+						p.paja[i][j] = map[i][j];
+						break;
+						
+						
+					default:
+						break;
+				}
 			}
 		}
+		
 		// osszelinkeljuk a szomszedokat
 		for(Csempe cs: p.getTiles()) {
 			int x = cs.getPosX();
@@ -31,134 +215,11 @@ public class Main {
 			cs.AddNeighbour(p.GetATile(x+1, y));
 			cs.AddNeighbour(p.GetATile(x, y-1));
 			cs.AddNeighbour(p.GetATile(x, y+1));
+			
 		}
 		
-		// innentol kellene megcsinalni, elvileg ha minden jol megy akkor fel van toltve a map 7x7 csempvel
-		//	es mindegyik tudja hogy merre vannak szomszedjai, ahol "fal"van abban az iranyban egy nullt tarol. 
-		// most kellene azt megoldani hogy a beolvasott mapnak megfeleloen cserelje ki a gyenge csempeket, meg bejartot meg kijartot
-		// aztan ha az megvan, pakolja ra az elemeket ( panda orangutan es a gepek) 
-		
-		String ch;
-		char[] cha = new char[1];
-		int num;
-		
-		for (int i = 0; i < 7; ++i) {
-			for(int j = 0; j < 7; ++j) {
-				switch(map[i][j]){
-					case "cs":
-						p.setTiles(csempeArray[i][j]);
-						break;
-					case "G":
-						//splitting to get num
-						ch = map[i][j];
-						cha = new char[1];
-						ch.getChars(1, 1, cha, 0);
-						System.out.println(cha + "\r\n");
-						num = Integer.parseInt(String.valueOf(cha));
-						
-						GyengeCsempe gy = new GyengeCsempe();
-						gy.setPosX(i);
-						gy.setPosY(j);
-						gy.SetLife(num);
-						p.setTiles(gy);
-						break;
-					//be es kijaratnal igy a csempeArrayben bent marad a helyukon a csempe, de nem hasznaljuk
-					case "BE":
-						Bejarat be = new Bejarat();
-						be.setPosX(i);
-						be.setPosY(j);
-						p.setTiles(be);
-						break;
-					case "KI":
-						Kijarat ki = new Kijarat();
-						ki.setPosX(i);
-						ki.setPosY(j);
-						p.setTiles(ki);
-						break;
-					case "O":
-						//splitting to get num
-						ch = map[i][j];
-						cha = new char[1];
-						ch.getChars(1, 1, cha, 0);
-						System.out.println(cha + "\r\n");
-						String stringCha = cha.toString();
-						
-						//szamit mi a valtozo neve..?
-						//szerintem külön orangutan attributum kéne a kezeléséhez
-						Orangutan O = new Orangutan();
-						O.SetPosition(csempeArray[i][j]);
-						csempeArray[i][j].SetElem(O);
-						p.setTiles(csempeArray[i][j]);
-						break;
-					case "s":
-						//splitting to get num
-						ch = map[i][j];
-						cha = new char[1];
-						ch.getChars(1, 1, cha, 0);
-						num = Integer.parseInt(String.valueOf(cha));
-						Szekreny s = new Szekreny();
-						csempeArray[i][j].SetElem(s);
-						
-						//melyik szekrénynek a kezeléséhez szerintem külön attributum kéne
-						p.setTiles(csempeArray[i][j]);
-						break;
-					case "t":
-						//kezelni kell kinek a targetje de ahhoz szerintem kéne az az attributum
-						break;
-					case "##":
-						GyengeCsempe gycs = new GyengeCsempe();
-						gycs.SetLife(0);
-						gycs.setPosX(i);
-						gycs.setPosY(j);
-						p.setTiles(gycs);
-						break;
-					case "au":
-						CsokiAutomata csa = new CsokiAutomata();
-						csa.SetPosition(csempeArray[i][j]);
-						csempeArray[i][j].SetElem(csa);
-						p.setTiles(csempeArray[i][j]);
-						break;
-					case "jt":
-						JatekGep jt = new JatekGep();
-						jt.SetPosition(csempeArray[i][j]);
-						csempeArray[i][j].SetElem(jt);
-						p.setTiles(csempeArray[i][j]);
-						break;
-					case "fe":
-						Fotel fe = new Fotel();
-						fe.SetPosition(csempeArray[i][j]);
-						csempeArray[i][j].SetElem(fe);
-						p.setTiles(csempeArray[i][j]);						
-						break;
-					case "K":
-						//leadert/sort allitani kell
-						Panda kp = new KekPanda();
-						kp.SetPosition(csempeArray[i][j]);
-						csempeArray[i][j].SetElem(kp);
-						p.setTiles(csempeArray[i][j]);
-						break;
-					case "P":
-						//leadert/sort allitani kell
-						Panda pp = new PirosPanda();
-						pp.SetPosition(csempeArray[i][j]);
-						csempeArray[i][j].SetElem(pp);
-						p.setTiles(csempeArray[i][j]);
-						break;
-					case "Z":
-						//leadert/sort allitani kell
-						Panda zp = new ZoldPanda();
-						zp.SetPosition(csempeArray[i][j]);
-						csempeArray[i][j].SetElem(zp);
-						p.setTiles(csempeArray[i][j]);
-						break;
-					default:
-						System.exit(0);			
-				}
-			}
-			//System.out.println("");
-		}
-		//System.out.println("");
 	}
+
 	
 	public static String[][] ReadMapFile(String filename) throws FileNotFoundException {
 		@SuppressWarnings("resource")
@@ -171,7 +232,7 @@ public class Main {
 		    String[] split = line.split(" ");
 		    lines.add(split);
 		}
-		for(int i = 0; i<result.length; i++) {
+		for(int i = 0; i < result.length; i++) {
 		    result[i] = lines.get(i);
 		}
 		return result;
@@ -201,11 +262,17 @@ public class Main {
 	
 	
 
-	public static void Teszt1() {
+	public static void Teszt1() throws FileNotFoundException {
 		/*ReadMapFile kÃ³drÃ©szlet*/
+		String[][] input = ReadMapFile("input01.txt");
+		String[][] output = ReadMapFile("output01.txt");
 		/*PÃ¡lyalÃ©trehozÃ³ kÃ³drÃ©szlet*/
+		Palya p = new Palya();
+		createMapFromArray(input, p);
 		/*LÃ©pÃ©s fv*/
+		//lepunk es korrigaljuk a p.paja-t
 		/*TesztCheck kÃ³drÃ©szlet*/
+		TesztCheck(output, p.paja);
 	}
 
 	public static void Teszt2() {
@@ -285,14 +352,20 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 
+		System.out.println("INPUT");
 		String[][] a = ReadMapFile("input01.txt");
 		DisplayMapFile(a);
-		String[][] b = ReadMapFile("input02.txt");
-		DisplayMapFile(b);
 		
-		TesztCheck(a,a);
-		TesztCheck(a,b);
-		createMapFromArray(a);
+		//String[][] b = ReadMapFile("input02.txt");
+		System.out.println("OUTPUT");
+		String[][] output = ReadMapFile("output01.txt");
+		DisplayMapFile(output);
+		
+		Palya p = new Palya();
+		createMapFromArray(a, p);
+	
+		TesztCheck(a, a);
+		TesztCheck(a, p.paja);
 		
 		Scanner in = new Scanner(System.in);
 	

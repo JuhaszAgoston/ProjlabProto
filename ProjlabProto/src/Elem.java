@@ -3,7 +3,8 @@ public abstract class Elem {
 	/*EZ MIÉRT PROTECTED?*/
 	protected Csempe position;
 	
-	
+	private int posX;
+	private int posY;
 	
 	abstract public void CollideWithOrangutan(Orangutan o);
 	abstract public void AffectedByJatekgep(JatekGep j);
@@ -21,10 +22,29 @@ public abstract class Elem {
 		pos[2] =  position.getPosY();
 		return pos;
 	}*/
-
+	
+	
+ 
 	//setter x es y koordinitakmiatt ez lett
 	public void SetPosition(Csempe position) {
 		this.position.setPosX(position.getPosX());
 		this.position.setPosY(position.getPosY());
+	}
+	
+
+	public int getPosX() {
+		return posX;
+	}
+
+	public int getPosY() {
+		return posY;
+	}
+	
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+	
+	public void setPosY(int posY) {
+		this.posY = posY;
 	}
 }

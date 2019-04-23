@@ -11,6 +11,8 @@ public class Palya {
 	private static Bejarat bejarat;
 	private static Kijarat kijarat;
 	
+	//teszt miatt
+	String[][] paja = new String[7][7];
 	
 	public static void NewOrangutan(Orangutan o) {
 		//orangutan_life--;//!!!!!!
