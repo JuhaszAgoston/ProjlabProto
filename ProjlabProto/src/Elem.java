@@ -22,14 +22,8 @@ public abstract class Elem {
 		pos[2] =  position.getPosY();
 		return pos;
 	}*/
-	
-	
- 
-	//setter x es y koordinitakmiatt ez lett
 	public void SetPosition(Csempe position) {
 		this.position = position;
-		//this.position.setPosX(position.getPosX());
-		//this.position.setPosY(position.getPosY());
 	}
 	
 

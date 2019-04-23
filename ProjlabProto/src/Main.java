@@ -154,7 +154,7 @@ public class Main {
 						p.setTiles(scs);
 						p.paja[i][j] = map[i][j];
 						break;
-						
+						//
 					//ezt meg ki kell talalni hogy linkeljuk ossze a szekrennyel
 					//pl. mi van ha elobb van egy target es meg nincs meg a szekreny?
 					case "T0":
