@@ -17,7 +17,7 @@ public class Kijarat extends Csempe{
 				i.Move(cs);
 				cs = temp;
 			}
-			Palya.RemoveFromList(p);
+			//Palya.RemoveFromList(p);
 		}
 		Palya.OrangutanKilep(o);
 	}

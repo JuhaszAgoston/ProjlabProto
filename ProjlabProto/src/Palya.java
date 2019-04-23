@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Palya {
 	/*ITT A LĂ�THATĂ“SĂ�GOKNAK LEHET HOGY PUBLICNAK KĂ‰NE LENNIE? MERT EGYES OBJEKTUMOK LĂ�TJĂ�K A PĂ�LYĂ�T*/
-	private ArrayList<Panda> pandalist = new ArrayList<>();
+	public ArrayList<Panda> pandalist = new ArrayList<>();
 	private ArrayList<Orangutan> jatekosok = new ArrayList<>();
 	private ArrayList<Csempe> tiles = new ArrayList<>();
 	//private static int orangutan_life; --DEPRECATED? TĂ–BB ORĂ�NGUTĂ�N VAN

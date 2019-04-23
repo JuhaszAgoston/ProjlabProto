@@ -80,12 +80,6 @@ public class Main {
 						ocs.setPosY(i);
 						ocs.SetElem(o);
 						o.SetPosition(ocs);  
-<<<<<<< HEAD
-=======
-						
-						o.setPosX(ocs.getPosX());
-						o.setPosY(ocs.getPosY());
->>>>>>> branch 'master' of https://github.com/JuhaszAgoston/ProjlabProto.git
 						p.setTiles(ocs);
 						break;
 						
@@ -97,12 +91,7 @@ public class Main {
 						pcs.setPosY(i);
 						pcs.SetElem(pp);
 						pp.SetPosition(pcs);  
-<<<<<<< HEAD
-=======
 						
-					    pp.setPosX(pcs.getPosX());
-						pp.setPosY(pcs.getPosY());
->>>>>>> branch 'master' of https://github.com/JuhaszAgoston/ProjlabProto.git
 						p.setTiles(pcs);
 						p.setPandalist(pp);
 						break;
@@ -110,7 +99,7 @@ public class Main {
 						Csempe p1cs = new Csempe();
 						PirosPanda pp1 = new PirosPanda();
 						pp1.SetFree(false);
-						pp1.SetLeader(o); // ez igy offos
+						//pp1.SetLeader(o); // ez igy offos
 						p1cs.setPosX(j);
 						p1cs.setPosY(i);
 						p1cs.SetElem(pp1);
@@ -122,7 +111,7 @@ public class Main {
 						Csempe p2cs = new Csempe();
 						PirosPanda pp2 = new PirosPanda();
 						pp2.SetFree(false);
-						pp2.SetLeader(o); // ez igy offos
+						//pp2.SetLeader(o); // ez igy offos
 						p2cs.setPosX(j);
 						p2cs.setPosY(i);
 						p2cs.SetElem(pp2);
@@ -139,12 +128,7 @@ public class Main {
 						kcs.setPosY(i);
 						kcs.SetElem(kp);
 						kp.SetPosition(kcs);  
-<<<<<<< HEAD
-=======
-						
-					    kp.setPosX(kcs.getPosX());
-						kp.setPosY(kcs.getPosY());
->>>>>>> branch 'master' of https://github.com/JuhaszAgoston/ProjlabProto.git
+
 						p.setTiles(kcs);
 						p.setPandalist(kp);
 					case "K1":
@@ -178,12 +162,7 @@ public class Main {
 						zcs.setPosY(i);
 						zcs.SetElem(zp);
 						zp.SetPosition(zcs);  
-<<<<<<< HEAD
-=======
 
-					    zp.setPosX(zcs.getPosX());
-						zp.setPosY(zcs.getPosY());
->>>>>>> branch 'master' of https://github.com/JuhaszAgoston/ProjlabProto.git
 						p.setTiles(zcs);
 						break;
 					case "Z1":
@@ -216,21 +195,10 @@ public class Main {
 						scs.setPosY(i);
 						scs.SetElem(sz);
 						sz.SetPosition(scs);  
-<<<<<<< HEAD
-=======
-						
-					    sz.setPosX(scs.getPosX());
-						sz.setPosY(scs.getPosY());
->>>>>>> branch 'master' of https://github.com/JuhaszAgoston/ProjlabProto.git
+
 						p.setTiles(scs);
 						break;
-<<<<<<< HEAD
-						
-=======
-						//
-					//ezt meg ki kell talalni hogy linkeljuk ossze a szekrennyel
-					//pl. mi van ha elobb van egy target es meg nincs meg a szekreny?
->>>>>>> branch 'master' of https://github.com/JuhaszAgoston/ProjlabProto.git
+
 					case "T0":
 					case "T1":
 					case "T2":
@@ -330,15 +298,9 @@ public class Main {
 	public static String[][] output;
 
 	public static void Teszt1() throws FileNotFoundException {
-<<<<<<< HEAD
-		String[][] input = ReadMapFile("input01.txt");
-		Palya p = new Palya();
-=======
 		input = ReadMapFile("input01.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output01.txt");
-		
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
->>>>>>> branch 'master' of https://github.com/JuhaszAgoston/ProjlabProto.git
 		createMapFromArray(input, p);
 		TesztCheck(input, p.palya);
 	}
