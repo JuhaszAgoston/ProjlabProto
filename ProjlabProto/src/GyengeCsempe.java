@@ -22,14 +22,14 @@ public class GyengeCsempe extends Csempe{
 	}
 
 	@Override
-	public void SteppedOnByOrangutan (Orangutan o) { //Ezt mondjuk nem írtuk bele a doksiba, de nem szólt be érte
+	public void SteppedOnByOrangutan (Orangutan o) {
 		if (!this.HasElem()) {
 			this.Damage(o);
 		}
 	}
 	
 	@Override
-	public void SteppedOnByPanda (Panda p) { //ezt se
+	public void SteppedOnByPanda (Panda p) {
 		if (!this.HasElem()) {
 			this.Damage(p);
 		}

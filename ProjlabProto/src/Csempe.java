@@ -11,8 +11,6 @@ public class Csempe {
 	//sakktabla miatt kell kesobb ki lehet szedni
 	private int posX;
 	private int posY;
-
-	
 	
 	public List<Csempe> GetNeighbour() {
 		return neighbours;

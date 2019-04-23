@@ -1,8 +1,7 @@
 //  Gabor
 public abstract class Elem {
-	/*EZ MIÉRT PROTECTED?*/
+
 	protected Csempe position;
-	
 	
 	abstract public void CollideWithOrangutan(Orangutan o);
 	abstract public void AffectedByJatekgep(JatekGep j);
