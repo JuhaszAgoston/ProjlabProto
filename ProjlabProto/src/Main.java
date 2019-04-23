@@ -84,8 +84,7 @@ public class Main {
 						ocs.setPosY(i);
 						ocs.SetElem(o);
 						o.SetPosition(ocs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+						
 						o.setPosX(ocs.getPosX());
 						o.setPosY(ocs.getPosY());
 						p.setTiles(ocs);
@@ -101,8 +100,7 @@ public class Main {
 						pcs.setPosY(i);
 						pcs.SetElem(pp);
 						pp.SetPosition(pcs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+						
 					    pp.setPosX(pcs.getPosX());
 						pp.setPosY(pcs.getPosY());
 						p.setTiles(pcs);
@@ -117,9 +115,8 @@ public class Main {
 						kcs.setPosX(j);
 						kcs.setPosY(i);
 						kcs.SetElem(kp);
-						//pp.SetPosition(pcs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+						kp.SetPosition(kcs);  
+						
 					    kp.setPosX(kcs.getPosX());
 						kp.setPosY(kcs.getPosY());
 						p.setTiles(kcs);
@@ -134,9 +131,8 @@ public class Main {
 						zcs.setPosX(j);
 						zcs.setPosY(i);
 						zcs.SetElem(zp);
-						//pp.SetPosition(pcs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+						zp.SetPosition(zcs);  
+
 					    zp.setPosX(zcs.getPosX());
 						zp.setPosY(zcs.getPosY());
 						p.setTiles(zcs);
@@ -151,9 +147,8 @@ public class Main {
 						scs.setPosX(j);
 						scs.setPosY(i);
 						scs.SetElem(sz);
-						//pp.SetPosition(pcs);  
-						//nem tudom miert de ez nullpointerexception-t dob, 
-						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
+						sz.SetPosition(scs);  
+						
 					    sz.setPosX(scs.getPosX());
 						sz.setPosY(scs.getPosY());
 						p.setTiles(scs);
