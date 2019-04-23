@@ -14,8 +14,7 @@ public class Main {
 	public static String[][] ReadMapFile(String filename) throws FileNotFoundException {
 		@SuppressWarnings("resource")
 		Scanner in = new Scanner(new File(filename));
-		int lineNum = 7; 
-		int columnNum = 7;
+		int lineNum = 7; int columnNum = 7;
 		String[][] result = new String[lineNum][columnNum];
 		List<String[]> lines = new ArrayList<>();
 		while(in.hasNextLine()) {
@@ -26,37 +25,38 @@ public class Main {
 		for(int i = 0; i<result.length; i++) {
 		    result[i] = lines.get(i);
 		}
-
 		return result;
 	}
 	
 	public static void DisplayMapFile(String[][] a) {
-				for (int i = 0; i < 7; ++i) {
-					for(int j = 0; j < 7; ++j) {
-						System.out.print(a[i][j]); System.out.print(" ");
-					}
-					System.out.println("");
-				}
-				System.out.println("");
+		for (int i = 0; i < 7; ++i) {
+			for(int j = 0; j < 7; ++j) {
+				System.out.print(a[i][j]); System.out.print(" ");
+			}
+			System.out.println("");
+		}
+		System.out.println("");
 	}
 	
 	public static void TesztCheck(String [][] a, String [][] b) {
 		for (int i = 0; i < 7; ++i) {
 			for(int j = 0; j < 7; ++j) {
-				if(a[i][j] != b[i][j]) {
+				if(!a[i][j].equals(b[i][j])) {
 					System.out.println("A teszt elbukott (" + i + " ; " + j + ") pontban.");
 					return; // ha nem egyezik a ket matrix barmelyik pontja ki kell lepnunk
 				}
 			}
 		}
 		System.out.println("A teszt sikeres"); // ide csak akkor jutunk el ha vegigfutottunk a teljes matrixon
-		return;
 	}
 	
 	
 
 	public static void Teszt1() {
-		
+		/*ReadMapFile kódrészlet*/
+		/*Pályalétrehozó kódrészlet*/
+		/*Lépés fv*/
+		/*TesztCheck kódrészlet*/
 	}
 
 	public static void Teszt2() {
@@ -113,6 +113,25 @@ public class Main {
 
 	public static void Teszt15() {
 	
+	}
+	public static void menuPrint() {
+		System.out.println("A tesztesetek:");
+		System.out.println(" 1. Orangutan mozgasa szabad csempere.");
+		System.out.println(" 2. Orangutan mozog gyenge csempere, aminek meg van egynel tobb elete.");
+		System.out.println(" 3. Orangutan mozog gyenge csempere ami eltorik (sor nelkul).");
+		System.out.println(" 4. Orangutan mozog gyenge csempere es az eltorik (ket elemu sorral).");
+		System.out.println(" 5. Panda mozog gyenge csempere es az eltorik.");
+		System.out.println(" 6. Orangutan pandaval talalkozik, ami szabad.");
+		System.out.println(" 7. Zold Panda mozog fotel mellett.");
+		System.out.println(" 8. Piros Panda mozog jatekgep mellett.");
+		System.out.println(" 9. Kek Panda mozog csokiautomata mellett.");
+		System.out.println("10. Orangutan szekrenyen atlep.");
+		System.out.println("11. Orangutan kilep a kijaraton ket Pandaval.");
+		System.out.println("12. Orangutan Pandaval talalkozik ami nem szabad.");
+		System.out.println("13. Panda onalloan mozog (Step).");
+		System.out.println("14. Orangutan masik Orangutannal talalkozik akinek elveszi a sorat.");
+		System.out.println("15. Orangutan masik Orangutannal talalkozik akinek nem veheti el a sorat.");
+
 	}
 
 	public static void main(String[] args) throws IOException {
