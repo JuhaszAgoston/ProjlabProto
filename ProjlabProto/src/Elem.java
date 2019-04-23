@@ -27,8 +27,9 @@ public abstract class Elem {
  
 	//setter x es y koordinitakmiatt ez lett
 	public void SetPosition(Csempe position) {
-		this.position.setPosX(position.getPosX());
-		this.position.setPosY(position.getPosY());
+		this.position = position;
+		//this.position.setPosX(position.getPosX());
+		//this.position.setPosY(position.getPosY());
 	}
 	
 

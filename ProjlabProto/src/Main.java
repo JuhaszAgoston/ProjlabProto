@@ -83,7 +83,7 @@ public class Main {
 						ocs.setPosX(j);
 						ocs.setPosY(i);
 						ocs.SetElem(o);
-						//o.SetPosition(ocs);  
+						o.SetPosition(ocs);  
 						//nem tudom miert de ez nullpointerexception-t dob, 
 						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
 						o.setPosX(ocs.getPosX());
@@ -100,7 +100,7 @@ public class Main {
 						pcs.setPosX(j);
 						pcs.setPosY(i);
 						pcs.SetElem(pp);
-						//pp.SetPosition(pcs);  
+						pp.SetPosition(pcs);  
 						//nem tudom miert de ez nullpointerexception-t dob, 
 						//pedig elvileg ugyanaz a fuggveny hivodik a fixelemeknel is
 					    pp.setPosX(pcs.getPosX());
