@@ -410,7 +410,7 @@ public class Main {
 		output = ReadMapFile("output15.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);//
+		TesztCheck(input, p.palya);
 	}
 	public static void menuPrint() {
 		System.out.println("A tesztesetek:");
