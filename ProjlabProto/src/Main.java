@@ -331,9 +331,6 @@ public class Main {
 	public static void Teszt5() throws FileNotFoundException {
 		input = ReadMapFile("input05.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output05.txt");
-		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
-		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
 	}
 
 	public static void Teszt6() throws FileNotFoundException {
@@ -410,7 +407,7 @@ public class Main {
 		output = ReadMapFile("output15.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);//
+		TesztCheck(input, p.palya);
 	}
 	public static void menuPrint() {
 		System.out.println("A tesztesetek:");
