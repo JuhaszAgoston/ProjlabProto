@@ -81,6 +81,7 @@ public class Main {
 						ocs.SetElem(o);
 						o.SetPosition(ocs);  
 						p.setTiles(ocs);
+						p.setPalyerList(o);
 						break;
 						
 					case "P0":
@@ -162,7 +163,7 @@ public class Main {
 						zcs.setPosY(i);
 						zcs.SetElem(zp);
 						zp.SetPosition(zcs);  
-
+						p.setPandalist(zp);
 						p.setTiles(zcs);
 						break;
 					case "Z1":
@@ -173,6 +174,7 @@ public class Main {
 						z1cs.setPosY(i);
 						z1cs.SetElem(z1p);
 						z1p.SetPosition(z1cs);  
+						p.setPandalist(z1p);
 						p.setTiles(z1cs);
 						break;
 					case "Z2":
@@ -183,6 +185,7 @@ public class Main {
 						z2cs.setPosY(i);
 						z2cs.SetElem(z2p);
 						z2p.SetPosition(z2cs);  
+						p.setPandalist(z2p);
 						p.setTiles(z2cs);
 						break;
 
@@ -301,9 +304,20 @@ public class Main {
 		output = ReadMapFile("output01.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		p.getTiles();
+		DisplayMapFile(input);
 		
-		p.palya[3][2]= "cs"; p.palya[3][3]="O1";
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;3)\n");
+		or.Move(p.GetATile(3, 3));
+		p.palya[3][2]= "cs"; 
+		p.palya[3][3]="O1";
+		DisplayMapFile(p.palya);
+		
 		TesztCheck(output, p.palya);
 	}
 
@@ -312,7 +326,21 @@ public class Main {
 		output = ReadMapFile("output02.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;3)\n");
+		or.Move(p.GetATile(3, 3));
+		p.palya[3][2]= "cs"; 
+		p.palya[3][3]="O1";
+		DisplayMapFile(p.palya);
+
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt3() throws FileNotFoundException {
@@ -320,7 +348,22 @@ public class Main {
 		output = ReadMapFile("output03.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null && csp.GetElem() == null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;3)\n");
+		or.Move(p.GetATile(3, 3));
+		
+		p.palya[3][2]= "cs"; 
+		p.palya[3][3]="##";
+		DisplayMapFile(p.palya);
+		
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt4() throws FileNotFoundException {
@@ -328,7 +371,24 @@ public class Main {
 		output = ReadMapFile("output04.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;3)\n");
+		or.Move(p.GetATile(3, 3));
+		
+		p.palya[3][0]= "cs";
+		p.palya[3][1]= "P0";
+		p.palya[3][2]= "P0"; 
+		p.palya[3][3]="##";
+		DisplayMapFile(p.palya);
+		
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt5() throws FileNotFoundException {
@@ -336,7 +396,23 @@ public class Main {
 		output = ReadMapFile("output05.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;4)\n");
+		or.Move(p.GetATile(3, 4));
+		
+		p.palya[3][2]= "cs"; 
+		p.palya[3][3]= "##"; 
+		p.palya[3][4]="O1";
+		DisplayMapFile(p.palya);
+		
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt6() throws FileNotFoundException {
@@ -344,7 +420,22 @@ public class Main {
 		output = ReadMapFile("output06.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;2)\n");
+		or.Move(p.GetATile(3, 2));
+		
+		p.palya[3][3]= "P1"; 
+		p.palya[3][2]="O1";
+		DisplayMapFile(p.palya);
+		
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt7() throws FileNotFoundException {
@@ -352,7 +443,23 @@ public class Main {
 		output = ReadMapFile("output07.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null && csp.GetElem() == null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;4)\n");
+		or.Move(p.GetATile(3, 4));
+		
+		p.palya[3][2]= "cs";
+		p.palya[3][3]= "cs"; 
+		p.palya[3][4]="O1";
+		DisplayMapFile(p.palya);
+		
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt8() throws FileNotFoundException {
@@ -360,12 +467,52 @@ public class Main {
 		output = ReadMapFile("output08.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null && csp.GetElem() == null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;4)\n");
+		or.Move(p.GetATile(3, 4));
+		
+		p.palya[3][1]= "cs";
+		p.palya[3][2]= "P0"; 
+		p.palya[3][3]= "P0"; 
+		p.palya[3][4]="O1";
+		DisplayMapFile(p.palya);
+		
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt9() throws FileNotFoundException {
 		input = ReadMapFile("input09.txt");		/*ReadMapFile kódrészlet*/
 		output = ReadMapFile("output09.txt");
+		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
+		createMapFromArray(input, p);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;4)\n");
+		or.Move(p.GetATile(3, 4));
+		
+		p.palya[3][1]= "cs";
+		p.palya[3][2]= "P0"; 
+		p.palya[3][3]= "K0"; 
+		p.palya[3][4]="O1";
+		DisplayMapFile(p.palya);
+		
+		
+		TesztCheck(output, p.palya);
+		
+		
 	}
 
 	public static void Teszt10() throws FileNotFoundException {
@@ -373,7 +520,23 @@ public class Main {
 		output = ReadMapFile("output10.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (3;3)\n");
+		or.Move(p.GetATile(3, 3));
+		
+		p.palya[3][2]= "cs"; 
+		p.palya[5][0]="O1";
+		DisplayMapFile(p.palya);
+		
+		
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt11() throws FileNotFoundException {
@@ -381,7 +544,24 @@ public class Main {
 		output = ReadMapFile("output11.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (6;5)\n");
+		or.Move(p.GetATile(6, 5));
+		
+		p.palya[0][3]= "O1";
+		p.palya[3][5]= "cs"; 
+		p.palya[4][5]= "cs"; 
+		p.palya[5][5]="cs";
+		DisplayMapFile(p.palya);
+		
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt12() throws FileNotFoundException {
@@ -389,7 +569,23 @@ public class Main {
 		output = ReadMapFile("output12.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (4;5)\n");
+		or.Move(p.GetATile(4, 5));
+		
+		p.palya[3][5]= "P0"; 
+		p.palya[4][5]= "K0"; 
+		p.palya[5][5]="cs";
+		DisplayMapFile(p.palya);
+			
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt13() throws FileNotFoundException {
@@ -397,7 +593,17 @@ public class Main {
 		output = ReadMapFile("output13.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Panda panda = p.getPandalist().get(0);
+		Csempe cs = panda.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null && csp.IsPandaSteppable())
+				System.out.println("Lepheto mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+
+		System.out.println("// itt valami nem stimmel");
+
 	}
 
 	public static void Teszt14() throws FileNotFoundException {
@@ -405,7 +611,27 @@ public class Main {
 		output = ReadMapFile("output14.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (5;5)\n");
+		or.Move(p.GetATile(5, 5));
+		
+		p.palya[2][5]= "P1";
+		p.palya[3][5]= "P1";
+		p.palya[4][5]= "K1";
+		p.palya[5][3]= "P0";
+		p.palya[5][5]="O1";
+		p.palya[5][4]="O2";
+		DisplayMapFile(p.palya);
+		
+
+		TesztCheck(output, p.palya);
 	}
 
 	public static void Teszt15() throws FileNotFoundException {
@@ -413,7 +639,21 @@ public class Main {
 		output = ReadMapFile("output15.txt");
 		Palya p = new Palya();/*Pályalétrehozó kódrészlet*/
 		createMapFromArray(input, p);
-		TesztCheck(input, p.palya);
+		DisplayMapFile(input);
+		
+		Orangutan or = p.GetPlayerList().get(0);
+		Csempe cs = or.GetPosition();
+		List<Csempe> szomszedok = cs.GetNeighbour();
+		for(Csempe csp: szomszedok)
+			if(csp != null)
+				System.out.println("Szomszedos mezo : (" + csp.getPosX() + " ; " + csp.getPosY() + ")");
+		System.out.println("\nMove (5;5)\n");
+		or.Move(p.GetATile(5, 5));
+		
+		DisplayMapFile(p.palya);
+		
+		
+		TesztCheck(output, p.palya);
 	}
 	public static void menuPrint() {
 		System.out.println("A tesztesetek:");
